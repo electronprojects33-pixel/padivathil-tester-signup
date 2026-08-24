@@ -53,6 +53,7 @@
     font-weight: 800;
     font-size: 1.6rem;
   }
+
   .logo-circle .p { color: #fff; }
   .logo-circle .v { color: var(--orange); }
 
@@ -146,6 +147,32 @@
     color: #1E8E3E;
   }
 
+  .qr-code {
+    width: 220px;
+    height: 220px;
+    object-fit: contain;
+    display: block;
+    margin: 18px auto 14px;
+    border-radius: 8px;
+  }
+
+  .testing-url {
+    font-size: 0.78rem;
+    color: var(--muted);
+    word-break: break-all;
+    line-height: 1.5;
+    margin: 0 0 4px;
+  }
+
+  .testing-url a {
+    color: var(--teal);
+    text-decoration: none;
+  }
+
+  .testing-url a:hover {
+    text-decoration: underline;
+  }
+
   .steps {
     text-align: left;
     background: var(--bg);
@@ -211,21 +238,43 @@
 
   <div id="successView">
     <div class="check">✓</div>
+
     <h1>Thanks! Here's your link</h1>
+
     <p class="subtitle">
-      We've noted your email. Tap below to join the test with the same Gmail account.
+      We've noted your email. Tap the QR code or link below to join the test.
+    </p>
+
+    <img
+      src="qr.png"
+      alt="Padivathil Testing QR Code"
+      class="qr-code"
+    >
+
+    <p class="testing-url">
+      <strong>Testing link:</strong><br>
+      <a
+        href="https://play.google.com/apps/testing/com.electron.padivathil1"
+        target="_blank"
+      >
+        https://play.google.com/apps/testing/com.electron.padivathil1
+      </a>
     </p>
 
     <div class="steps">
       <strong>How to install:</strong>
       <ol>
         <li>Make sure you're signed into the Play Store with the Gmail you submitted</li>
-        <li>Tap the link below and accept the invite to become a tester</li>
+        <li>Scan the QR code or tap the link below and accept the invite to become a tester</li>
         <li>Then install Padivathil from the Play Store page that opens</li>
       </ol>
     </div>
 
-    <a class="join-btn" href="https://play.google.com/apps/testing/com.electron.padivathil1" target="_blank">
+    <a
+      class="join-btn"
+      href="https://play.google.com/apps/testing/com.electron.padivathil1"
+      target="_blank"
+    >
       Join Testing &amp; Install Padivathil
     </a>
 
@@ -246,6 +295,7 @@
 
   form.addEventListener('submit', async function (e) {
     e.preventDefault();
+
     submitBtn.disabled = true;
     submitBtn.textContent = 'Submitting...';
     errorMsg.style.display = 'none';
